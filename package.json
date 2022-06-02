@@ -1,0 +1,26 @@
+{
+
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  },
+  "name": "vehicle-efficiency-analyzer",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshacross/vehicle-efficiency-analyzer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshacross/vehicle-efficiency-analyzer/issues"
+  },
+  "homepage": "https://github.com/joshacross/vehicle-efficiency-analyzer#readme"
+}
