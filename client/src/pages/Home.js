@@ -1,5 +1,5 @@
 import React from "react";
-import { createStyles, createTheme } from '@mui/material';
+import { styled, createTheme } from '@mui/material';
 
 const theme = createTheme({
   breakpoints: {
@@ -13,7 +13,7 @@ const theme = createTheme({
   },
 })
 
-const useStyles = createStyles((theme) => ({
+const useStyles = styled((theme) => ({
   root: {
     minHeight: '100vh',
     minWidth: '100vw',
@@ -45,8 +45,8 @@ const Home = () => {
 
   const classes = useStyles(theme);
   return (
-    <div className={classes.root}>
-    </div>
+        <div className={classes.root}>
+        </div>
   );
 };
 
