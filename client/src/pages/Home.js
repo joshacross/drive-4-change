@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, createTheme } from '@mui/material';
+import { createStyles, createTheme } from '@mui/material';
 
 const theme = createTheme({
   breakpoints: {
@@ -13,7 +13,7 @@ const theme = createTheme({
   },
 })
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = createStyles((theme) => ({
   root: {
     minHeight: '100vh',
     minWidth: '100vw',
