@@ -1,6 +1,5 @@
 import React from "react";
-import { makeStyles, createTheme } from '@material-ui/core/styles';
-
+import { makeStyles, createTheme } from '@mui/material';
 
 const theme = createTheme({
   breakpoints: {
