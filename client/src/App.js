@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Nav from "./components/Nav";
 import {
   RecoilRoot,
   atom,
@@ -12,14 +11,12 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login/';
 import Signup from './pages/Signup';
+// import './styles/index.css';
+import './styles/styles.css';
 
 function App() {
   return (
     <RecoilRoot className="App">
-        <header className="App-header">
-          <h1>Drive4Change</h1>
-          </header>
-          <Nav></Nav>
           <Home></Home>
           <Dashboard></Dashboard>
           <Login></Login>

@@ -20,22 +20,23 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
-import Orders from './Orders';
+import Notifications from './Notifications';
+import Logo from './assets/d4c-logo-text.png';
 
 function Copyright(props) {
   return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'Copyright © '}
-        <Link color="inherit" href="https://mui.com/">
-          Drive4Change
-        </Link>{' '}
         {new Date().getFullYear()}
-        {'.'}
+        {' © '}
+        <Link color="inherit" href=" https://github.io/joshacross/drive-4-change">
+          { 'Drive4Change' }
+        </Link>
+        {' created by Joshua Cross, Valencia Gooch, & Thomas Bau '}
+        <br></br>
+        { '#Hack4Hire, Nashville, TN - Sponsored by Amazon'}
       </Typography>
   );
 }
-
-
 
 const drawerWidth = 240;
 
@@ -111,7 +112,9 @@ function DashboardContent() {
                 ...(open && { display: 'none' }),
               }}
             >
+
               <MenuIcon />
+              <img src={Logo} alt=""></img>
             </IconButton>
             <Typography
               component="h1"
@@ -120,7 +123,7 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              Driver Dashboard
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -163,7 +166,33 @@ function DashboardContent() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            
             <Grid container spacing={3}>
+            <Grid item xs={12} md={8} lg={9}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Chart />
+                </Paper>
+              </Grid>
+              {/* Recent Deposits */}
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Deposits />
+                </Paper>
+              </Grid>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
@@ -190,10 +219,10 @@ function DashboardContent() {
                   <Deposits />
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
+              {/* Recent Notifications */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
+                  <Notifications />
                 </Paper>
               </Grid>
             </Grid>
