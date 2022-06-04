@@ -1,5 +1,5 @@
 {
-  "name": "vehicle-efficiency-analyzer",
+  "name": "create-4-change",
   "version": "1.0.0",
   "description": "",
   "author": "Joshua Cross, Thomas Bau, Valencia Gooch",
@@ -19,6 +19,7 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "recharts": "^2.1.10",
     "recoil": "^0.7.3",
     "web-vitals": "^2.1.4"
   },

@@ -19,7 +19,7 @@ s3.createBucket(bucketParams, (err, data) => {
     } else {
         console.log('Success');
     }
-})
+});
 
 
 
