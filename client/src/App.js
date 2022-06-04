@@ -9,7 +9,8 @@ import {
   useRecoilValue,
 } from 'recoil';
 import Home from './pages/Home';
-import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login/';
 import Signup from './pages/Signup';
 
 function App() {
@@ -18,13 +19,18 @@ function App() {
         <header className="App-header">
           <h1>Drive4Change</h1>
           </header>
-          <Router>
+          <Nav></Nav>
+          <Home></Home>
+          <Dashboard></Dashboard>
+          <Login></Login>
+          <Signup></Signup>
+          {/* <Router>
           <Nav>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
           </Nav>
-          </Router>
+          </Router> */}
     </RecoilRoot>
   );
 }
