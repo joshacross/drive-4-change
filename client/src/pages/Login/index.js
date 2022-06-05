@@ -1,31 +1,66 @@
-import * as React from 'react';
-import { useRecoilState } from 'recoil';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { loginState } from '../../utils/globalstate';
+import React, { useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { loginState } from "../../utils/globalstate";
 
 const theme = createTheme();
 
 export default function SignIn() {
-  let [isLoggedIn, setLoginState] = useRecoilState(loginState);
-  const handleSubmit = (event) => {
+  let [email, setEmail] = useState("");
+  let [code, setCode] = useState("");
+  let [token, setToken] = useState("");
+  let [requestedLogin, setRequestedLogin] = useState(false);  
+
+  // let [isLoggedIn, setLoginState] = useRecoilState(loginState);
+  const requestLogin = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    debugger;
+    fetch(
+      "https://645jzprbjb.execute-api.us-east-2.amazonaws.com/prod/requestLogin",
+      {
+        headers: 
+          {
+            "X-API-Key": "zfVHzncqvCaNW2z9HCHrYaBi7px3Td5S8ctufxeN",
+          },
+        method: "POST",
+        body: JSON.stringify({
+          email: email
+        })
+      }
+    ).then((r) => r.json())
+    .then((response) => {
+      setToken(response.body.token);
+    })
+  };
+
+  const login = async (event) => {
+    event.preventDefault();
+    debugger;
+    await fetch(
+      "https://645jzprbjb.execute-api.us-east-2.amazonaws.com/prod/requestLogin",
+      {
+        headers: 
+          {
+            "X-API-Key": "zfVHzncqvCaNW2z9HCHrYaBi7px3Td5S8ctufxeN",
+          },
+        method: "POST",
+        body: JSON.stringify({
+        code: code, 
+        token: token
+        })
+      }
+    );
   };
 
   return (
@@ -35,18 +70,25 @@ export default function SignIn() {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={ !requestCode ? requestLogin : login }
+            noValidate
+            sx={{ mt: 1 }}
+          >
+            {!requestedLogin?
+
             <TextField
               margin="normal"
               required
@@ -56,17 +98,26 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
-            />
+              onChange={(v) => {
+                setEmail(v.target.value);
+              }}
+            />   
+            :
             <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+            margin="normal"
+            required
+            fullWidth
+            id="code"
+            label="Enter Code"
+            name="code"
+            autoComplete=""
+            autoFocus
+            onChange={(v) => {
+              setCode(v.target.value);
+            }}
+          />   
+          }
+
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -79,18 +130,6 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>
