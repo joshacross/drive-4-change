@@ -10,7 +10,7 @@ jobs:
         - uses: actions/checkout@v2
 
         - name: Install dependencies
-          run: npm run install-client
+          run: npm run install
 
         - name: Build
           run: npm run build
