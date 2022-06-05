@@ -23,6 +23,7 @@ import Deposits from './Deposits';
 import Notifications from './Notifications';
 import Logo from './assets/d4c-logo-text.png';
 import Header from '../../components/Header';
+import Rewards from '../../components/Rewards';
 
 function Copyright(props) {
   return (
@@ -181,7 +182,7 @@ function DashboardContent() {
                   <Header />
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* Rewards Section */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -191,7 +192,7 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Deposits />
+                  <Rewards />
                 </Paper>
               </Grid>
               {/* Chart */}
