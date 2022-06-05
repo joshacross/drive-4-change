@@ -1,27 +1,28 @@
-name: Deploy To AWS
-on:
-  push:
-    branches:
-    - dev
+# Not needed since we moved from Elastic Beanstalk to Lambdas
+# name: Deploy To AWS
+# on:
+#   push:
+#     branches:
+#     - dev
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
 
-    - name: Checkout source code
-      uses: actions/checkout@v2
+#     - name: Checkout source code
+#       uses: actions/checkout@v2
 
-    - name: Generate deployment package
-      run: zip -r deploy.zip . -x '*.git*'
+#     - name: Generate deployment package
+#       run: zip -r deploy.zip . -x '*.git*'
 
-    - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v20
-      with:
-        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: drive-4-change
-        environment_name: drive-4-change-env
-        region: us-east-2
-        version_label: 604222
-        deployment_package: deploy.zip
+#     - name: Deploy to EB
+#       uses: einaregilsson/beanstalk-deploy@v20
+#       with:
+#         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         application_name: drive-4-change
+#         environment_name: drive-4-change-env
+#         region: us-east-2
+#         version_label: 604222
+#         deployment_package: deploy.zip
