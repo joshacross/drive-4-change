@@ -24,6 +24,8 @@ import Notifications from './Notifications';
 import Logo from './assets/d4c-logo-text.png';
 import Header from '../../components/Header';
 import Rewards from '../../components/Rewards';
+import Diagnostics from '../../components/Diagnostics';
+import Trips from '../../components/Trips'
 
 function Copyright(props) {
   return (
@@ -125,7 +127,7 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Driver Dashboard
+                Driver Dashboard
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -208,7 +210,7 @@ function DashboardContent() {
                   <Chart />
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* Point Totals */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -225,6 +227,24 @@ function DashboardContent() {
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Notifications />
+                </Paper>
+              </Grid>
+                            {/* Vehicle Diagnostics */}
+                            <Grid item xs={6}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Diagnostics></Diagnostics>
+                  <Diagnostics></Diagnostics>
+                  <Diagnostics></Diagnostics>
+                  <Diagnostics></Diagnostics>
+                </Paper>
+              </Grid>
+                                          {/* Driver Trip Data */}
+                                          <Grid item xs={6}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Trips></Trips>
+                  <Trips></Trips>
+                  <Trips></Trips>
+                  <Trips></Trips>
                 </Paper>
               </Grid>
             </Grid>

@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 
-function Rewards() {
+function Trip() {
 
   return (
     <React.Fragment>
-      <h2>Rewards Section</h2>
+      <h2>Trip Data</h2>
     </React.Fragment>
   );
 }
 
-export default Rewards;
+export default Trip;
