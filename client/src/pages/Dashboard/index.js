@@ -17,13 +17,13 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Notifications from './Notifications';
-import Logo from './assets/d4c-logo-text.png';
-import Header from '../../components/Header';
+import { mainListItems, secondaryListItems } from '../../components/Nav';
+import Chart from '../../components/Chart';
 import Rewards from '../../components/Rewards';
+import Notifications from '../../components/Notifications';
+import Logo from '../../assets/d4c-logo-text.png';
+import Header from '../../components/Header';
+import Points from '../../components/Points';
 import Diagnostics from '../../components/Diagnostics';
 import Trips from '../../components/Trips'
 
@@ -220,7 +220,7 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Deposits />
+                  <Points />
                 </Paper>
               </Grid>
               {/* Recent Notifications */}
