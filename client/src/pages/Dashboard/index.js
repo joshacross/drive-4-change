@@ -22,6 +22,7 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Notifications from './Notifications';
 import Logo from './assets/d4c-logo-text.png';
+import Header from '../../components/Header';
 
 function Copyright(props) {
   return (
@@ -177,7 +178,7 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Chart />
+                  <Header />
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
