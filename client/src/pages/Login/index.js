@@ -5,14 +5,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { loginState } from "../../utils/globalstate";
 
 const theme = createTheme();
 
@@ -48,7 +45,7 @@ export default function SignIn() {
     event.preventDefault();
     debugger;
     await fetch(
-      "https://645jzprbjb.execute-api.us-east-2.amazonaws.com/prod/requestLogin",
+      "https://645jzprbjb.execute-api.us-east-2.amazonaws.com/prod/login",
       {
         headers: 
           {
@@ -61,7 +58,11 @@ export default function SignIn() {
         token: token
         })
       }
-    );
+    ).then((r) => r.json())
+    .then((response) => {
+      setToken(response.response.body.token);
+      console.log('response', response.response.body.token);
+    })
   };
 
   return (
