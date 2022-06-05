@@ -1,0 +1,36 @@
+
+
+[Table(nameof(CompletedTrips), Schema = "trip_logs")]
+    public class CompletedTrips {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("trip_id", TypeName = "bigint(20) unsigned")]
+        public ulong TripID { get; set; }
+
+        [Required]
+        [Column("driver_id", TypeName = "bigint unsigned")]
+        public ulong DriverID { get; set; }
+
+        [ForeignKey(nameof(DriverID))]
+        public Person DriverID { get; set; } = null!;
+
+        [Required]
+        [Column("idle", TypeName = "tinyint unsigned")]
+        public ulong Idle { get; set; }
+
+        [Required]
+        [Column("avg_speed", TypeName = "int unsigned")]
+        public ulong AvgSpeed { get; set; }
+
+        [Column("start_time", TypeName = "int unsigned")]
+        public uint? StartTime { get; set; }
+
+        [Column("end_time", TypeName = "int unsigned")]
+        public uint? EndTime { get; set; }
+
+        [Column("trip_duration", TypeName = "int unsigned")]
+        public uint? TripDuration { get; set; }
+
+        [Column("gps_last_error_type", TypeName = "tinyint unsigned")]
+        public GPSErrorType? GPSLastErrorType { get; set; }
+    }

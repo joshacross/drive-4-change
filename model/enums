@@ -1,0 +1,9 @@
+
+enums for GPS Reader
+0 No GPS Error
+1 Error with Tire Pressure
+2 Error with Fuel Consumption
+3 Error with Idle Time
+4 Error with Avg. Speed
+5 Error with Lambda
+6 No Reading found
