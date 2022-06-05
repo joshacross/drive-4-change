@@ -233,17 +233,11 @@ function DashboardContent() {
                             <Grid item xs={6}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Diagnostics></Diagnostics>
-                  <Diagnostics></Diagnostics>
-                  <Diagnostics></Diagnostics>
-                  <Diagnostics></Diagnostics>
                 </Paper>
               </Grid>
                                           {/* Driver Trip Data */}
                                           <Grid item xs={6}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Trips></Trips>
-                  <Trips></Trips>
-                  <Trips></Trips>
                   <Trips></Trips>
                 </Paper>
               </Grid>
