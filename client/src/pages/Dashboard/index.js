@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRecoilState } from 'recoil';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -26,6 +27,7 @@ import Header from '../../components/Header';
 import Points from '../../components/Points';
 import Diagnostics from '../../components/Diagnostics';
 import Trips from '../../components/Trips'
+import { showDashboardState } from '../../utils/globalstate';
 
 function Copyright(props) {
   return (
@@ -91,6 +93,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent() {
+  let [showDashboard, setShowDashboard] = useRecoilState(showDashboardState);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);

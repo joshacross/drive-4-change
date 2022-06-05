@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRecoilState } from 'recoil';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,10 +13,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { loginState } from '../../utils/globalstate';
 
 const theme = createTheme();
 
 export default function SignIn() {
+  let [isLoggedIn, setLoginState] = useRecoilState(loginState);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
