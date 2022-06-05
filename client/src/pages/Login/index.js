@@ -56,6 +56,7 @@ export default function SignIn() {
           },
         method: "POST",
         body: JSON.stringify({
+        email: email,
         code: code, 
         token: token
         })
