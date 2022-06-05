@@ -17,11 +17,15 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Notifications from './Notifications';
-import Logo from './assets/d4c-logo-text.png';
+import { mainListItems, secondaryListItems } from '../../components/Nav';
+import Chart from '../../components/Chart';
+import Rewards from '../../components/Rewards';
+import Notifications from '../../components/Notifications';
+import Logo from '../../assets/d4c-logo-text.png';
+import Header from '../../components/Header';
+import Points from '../../components/Points';
+import Diagnostics from '../../components/Diagnostics';
+import Trips from '../../components/Trips'
 
 function Copyright(props) {
   return (
@@ -123,7 +127,7 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Driver Dashboard
+                Driver Dashboard
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -177,10 +181,10 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Chart />
+                  <Header />
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* Rewards Section */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -190,7 +194,7 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Deposits />
+                  <Rewards />
                 </Paper>
               </Grid>
               {/* Chart */}
@@ -206,7 +210,7 @@ function DashboardContent() {
                   <Chart />
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* Point Totals */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
@@ -216,13 +220,25 @@ function DashboardContent() {
                     height: 240,
                   }}
                 >
-                  <Deposits />
+                  <Points />
                 </Paper>
               </Grid>
               {/* Recent Notifications */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Notifications />
+                </Paper>
+              </Grid>
+                            {/* Vehicle Diagnostics */}
+                            <Grid item xs={6}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Diagnostics></Diagnostics>
+                </Paper>
+              </Grid>
+                                          {/* Driver Trip Data */}
+                                          <Grid item xs={6}>
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Trips></Trips>
                 </Paper>
               </Grid>
             </Grid>
