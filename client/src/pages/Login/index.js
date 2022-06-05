@@ -25,7 +25,6 @@ export default function SignIn() {
   // let [isLoggedIn, setLoginState] = useRecoilState(loginState);
   const requestLogin = async (event) => {
     event.preventDefault();
-    debugger;
     fetch(
       "https://645jzprbjb.execute-api.us-east-2.amazonaws.com/prod/requestLogin",
       {
@@ -40,7 +39,8 @@ export default function SignIn() {
       }
     ).then((r) => r.json())
     .then((response) => {
-      setToken(response.body.token);
+      setToken(response.response.body.token);
+      setRequestedLogin(true);
     })
   };
 
@@ -83,7 +83,7 @@ export default function SignIn() {
           </Typography>
           <Box
             component="form"
-            onSubmit={ !requestCode ? requestLogin : login }
+            onSubmit={ !requestedLogin ? requestLogin : login }
             noValidate
             sx={{ mt: 1 }}
           >
@@ -93,6 +93,7 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
+              key="email"
               id="email"
               label="Email Address"
               name="email"
@@ -107,6 +108,7 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            key="code"
             id="code"
             label="Enter Code"
             name="code"
